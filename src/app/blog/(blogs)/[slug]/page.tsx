@@ -41,20 +41,20 @@ export async function generateMetadata({
   }
 }
 
-// 👇 Main component for the blog post page
-interface PageProps {
+// ✅ renamed interface to avoid conflict
+interface BlogPageProps {
   params: { slug: string }
 }
 
-export default async function Page({ params }: PageProps) {
-
+// 👇 Main component for the blog post page
+export default async function Page({ params }: BlogPageProps) {
   const blog = blogList.find(b => b.slug === params.slug)
   if (!blog) return notFound()
 
   const blogDir = path.join(process.cwd(), 'src/data/blogcontent')
   const filePath = path.join(blogDir, `${blog.file}`)
   const file = fs.readFileSync(filePath, 'utf-8')
-  const { content, data } = matter(file) // supports optional frontmatter in MDX
+  const { content } = matter(file)
 
   return (
     <article className="max-w-3xl mx-auto py-10 px-6">
