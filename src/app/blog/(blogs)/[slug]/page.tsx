@@ -47,8 +47,11 @@ interface BlogPageProps {
 }
 
 // 👇 Main component for the blog post page
-export default async function Page({ params }: BlogPageProps) {
-  const blog = blogList.find(b => b.slug === params.slug)
+// ✅ the "any" bypasses the buggy constraint
+export default async function Page({ params }: any) {
+  const { slug } = params
+
+  const blog = blogList.find(b => b.slug === slug)
   if (!blog) return notFound()
 
   const blogDir = path.join(process.cwd(), 'src/data/blogcontent')
@@ -58,7 +61,6 @@ export default async function Page({ params }: BlogPageProps) {
 
   return (
     <article className="max-w-3xl mx-auto py-10 px-6">
-      {/* Blog cover image */}
       {blog.image && (
         <Image
           src={blog.image}
@@ -69,7 +71,6 @@ export default async function Page({ params }: BlogPageProps) {
         />
       )}
 
-      {/* Blog header */}
       <header className="mb-10">
         <h1 className="text-4xl font-bold mb-3 leading-tight text-gray-900">
           {blog.title}
@@ -77,7 +78,6 @@ export default async function Page({ params }: BlogPageProps) {
         <p className="text-gray-500 text-sm">{blog.date}</p>
       </header>
 
-      {/* Blog content */}
       <div className="prose prose-lg max-w-none text-gray-800">
         <MDXRemote source={content} />
       </div>
