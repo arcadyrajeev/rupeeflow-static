@@ -38,7 +38,7 @@ export default function SupportHero() {
             variants={content}
             className="text-3xl md:text-5xl lg:text-[5vw]  mb-12"
           >
-            We're Here to{' '}
+            We&apos;re Here to{' '}
             <span className="text-gradient-teal-emerald ">Support You</span>
           </motion.h2>
           <motion.p variants={content} className="text-gray-300 mb-2">
