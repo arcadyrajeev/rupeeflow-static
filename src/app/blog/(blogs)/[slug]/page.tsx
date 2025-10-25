@@ -42,9 +42,6 @@ export async function generateMetadata({
 }
 
 // ✅ renamed interface to avoid conflict
-interface BlogPageProps {
-  params: { slug: string }
-}
 
 // 👇 Main component for the blog post page
 // ✅ the "any" bypasses the buggy constraint
