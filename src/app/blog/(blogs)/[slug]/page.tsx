@@ -42,7 +42,12 @@ export async function generateMetadata({
 }
 
 // 👇 Main component for the blog post page
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+interface PageProps {
+  params: { slug: string }
+}
+
+export default async function Page({ params }: PageProps) {
+
   const blog = blogList.find(b => b.slug === params.slug)
   if (!blog) return notFound()
 
