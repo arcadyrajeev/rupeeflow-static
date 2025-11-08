@@ -28,7 +28,6 @@ export default function NEFTIntegrationPage() {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }
-
   const features = [
     {
       icon: Banknote,
@@ -211,7 +210,7 @@ export default function NEFTIntegrationPage() {
 
           <motion.div variants={content}>
             <Link
-              href="/signup"
+              href="https://rupeeflow.org/"
               className="inline-block px-8 py-3 bg-black text-white font-semibold rounded-full hover:bg-neutral-900 transition"
             >
               Get Started →

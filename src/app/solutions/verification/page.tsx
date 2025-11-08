@@ -14,6 +14,9 @@ import {
   FileJson,
   CheckCircle2,
 } from 'lucide-react'
+import FaqSection from '@/components/sections/FAQ';
+import faq from '@/data/top-faqs.json'
+
 
 export default function VerificationPage() {
   // Animation Variants
@@ -216,7 +219,7 @@ export default function VerificationPage() {
 
           <motion.div variants={content}>
             <Link
-              href="/signup"
+              href="https://rupeeflow.org/"
               className="inline-block px-8 py-3 bg-black text-white font-semibold rounded-full hover:bg-neutral-900 transition"
             >
               Get Started →
@@ -224,6 +227,7 @@ export default function VerificationPage() {
           </motion.div>
         </motion.div>
       </section>
+      <FaqSection faqs={faq} />
     </main>
   )
 }
